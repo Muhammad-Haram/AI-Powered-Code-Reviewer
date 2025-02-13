@@ -38,7 +38,7 @@ main .left {
   width: 100%;
   margin: 0;
   border-radius: 0.7rem;
-  background-color: #0c0c0c;
+  background-color: #F9F9F9;
 }
 
 main .left .review {
@@ -52,12 +52,49 @@ main .left .review {
   cursor: pointer;
   user-select: none;
   border-radius: 0.7rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 
 main .right {
-  background-color: #343434;
+  border: 1px solid #555;
   padding: 1rem 2rem;
-  font-size: 1.5rem;
+  font-size: 16px;
   overflow: auto;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.loader {
+  font-size: 16px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 100%;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
+  border: 2px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+::-webkit-scrollbar-corner {
+  background: #f1f1f1;
 }

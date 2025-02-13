@@ -13,16 +13,24 @@ function App() {
 }`);
 
   const [review, setReview] = useState(``);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     prism.highlightAll();
   }, []);
 
   async function reviewCode() {
-    const response = await axios.post("http://localhost:3000/ai/get-review", {
-      code,
-    });
-    setReview(response.data);
+    setLoading(true);
+    try {
+      const response = await axios.post("http://localhost:3000/ai/get-review", {
+        code,
+      });
+      setReview(response.data);
+    } catch (error) {
+      console.error("Error fetching review:", error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -52,7 +60,11 @@ function App() {
           </div>
         </div>
         <div className="right">
-          <Markdown rehypePlugins={[rehypeHighlight]}>{review}</Markdown>
+          {loading ? (
+            <div className="loader">Loading...</div>
+          ) : (
+            <Markdown rehypePlugins={[rehypeHighlight]}>{review}</Markdown>
+          )}
         </div>
       </main>
     </>
